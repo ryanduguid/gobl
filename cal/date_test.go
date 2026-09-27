@@ -93,18 +93,17 @@ func TestDateValidation(t *testing.T) {
 }
 
 func TestDateToday(t *testing.T) {
+	before := time.Now().UTC()
 	d := cal.Today()
-	assert.Equal(t, d.Year, time.Now().Year())
-	assert.Equal(t, d.Month, time.Now().Month())
-	assert.Equal(t, d.Day, time.Now().Day())
+	after := time.Now().UTC()
+	assert.Contains(t, []string{before.Format(time.DateOnly), after.Format(time.DateOnly)}, d.String())
 
 	l, err := time.LoadLocation("America/New_York")
 	require.NoError(t, err)
-	tn := time.Now().In(l)
+	before = time.Now().In(l)
 	d = cal.TodayIn(l)
-	assert.Equal(t, d.Year, tn.Year())
-	assert.Equal(t, d.Month, tn.Month())
-	assert.Equal(t, d.Day, tn.Day())
+	after = time.Now().In(l)
+	assert.Contains(t, []string{before.Format(time.DateOnly), after.Format(time.DateOnly)}, d.String())
 }
 
 func TestDateClone(t *testing.T) {

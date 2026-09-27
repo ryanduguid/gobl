@@ -3,6 +3,7 @@ package changes_test
 import (
 	"os"
 	"path/filepath"
+	"runtime"
 	"testing"
 	"time"
 
@@ -230,9 +231,7 @@ func TestPreview(t *testing.T) {
 	})
 
 	t.Run("with an unreadable subdirectory", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable directory does not stop root from walking it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{"changes/unreleased/claude/nested.md": "## Added\n\n- one\n"})
 		dir := filepath.Join(root, "changes/unreleased/claude")
 		require.NoError(t, os.Chmod(dir, 0o000))
@@ -265,9 +264,7 @@ func TestPreview(t *testing.T) {
 	})
 
 	t.Run("with an unreadable change file", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable file does not stop root from reading it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{"changes/unreleased/a.md": "## Added\n\n- one\n"})
 		path := filepath.Join(root, "changes/unreleased/a.md")
 		require.NoError(t, os.Chmod(path, 0o000))
@@ -295,7 +292,7 @@ func TestRelease(t *testing.T) {
 
 		name, err := changes.Release(root, "v0.506.0", testDate)
 		require.NoError(t, err)
-		assert.Equal(t, "changes/releases/2026-09-14-v0.506.0.md", name)
+		assert.Equal(t, filepath.Join(changes.ReleasesDir, "2026-09-14-v0.506.0.md"), name)
 
 		assert.Equal(t,
 			"# v0.506.0 - 2026-09-14\n\n## Added\n\n- first\n",
@@ -334,9 +331,7 @@ func TestRelease(t *testing.T) {
 	})
 
 	t.Run("keeps the changelog when the history cannot be read", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable directory does not stop root from reading it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{
 			"changes/unreleased/a.md":                 "## Added\n\n- first\n",
 			"changes/releases/2026-09-09-v0.505.0.md": "# v0.505.0 - 2026-09-09\n\n## Added\n\n- previous\n",
@@ -358,7 +353,7 @@ func TestRelease(t *testing.T) {
 
 		name, err := changes.Release(root, "v0.1.0", testDate)
 		require.NoError(t, err)
-		assert.Equal(t, "changes/releases/2026-09-14-v0.1.0.md", name)
+		assert.Equal(t, filepath.Join(changes.ReleasesDir, "2026-09-14-v0.1.0.md"), name)
 		assert.Equal(t, "# v0.1.0 - 2026-09-14\n\n## Added\n\n- first\n", read(t, root, name))
 		assert.Contains(t, read(t, root, changes.ChangelogFile), "## [v0.1.0] - 2026-09-14")
 	})
@@ -381,9 +376,7 @@ func TestRelease(t *testing.T) {
 	})
 
 	t.Run("puts the change files back when the cleanup fails", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("a read-only directory does not stop root from removing files")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{
 			"changes/unreleased/a.md":    "## Added\n\n- first\n",
 			"changes/unreleased/zz/b.md": "## Added\n\n- second\n",
@@ -520,9 +513,7 @@ func TestChangelog(t *testing.T) {
 	})
 
 	t.Run("with an unreadable release note", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable file does not stop root from reading it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{
 			"changes/releases/2026-09-09-v0.505.0.md": "# v0.505.0 - 2026-09-09\n\n## Added\n\n- one\n",
 		})
@@ -534,9 +525,7 @@ func TestChangelog(t *testing.T) {
 	})
 
 	t.Run("with an unreadable releases directory", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable directory does not stop root from reading it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{
 			"changes/releases/2026-09-09-v0.505.0.md": "# v0.505.0 - 2026-09-09\n\n## Added\n\n- one\n",
 		})
@@ -642,9 +631,7 @@ func TestNormalize(t *testing.T) {
 	})
 
 	t.Run("cannot rewrite a release note", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("a read-only directory does not stop root from writing")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, map[string]string{
 			"changes/releases/2026-09-09-v0.505.0.md": "# v0.505.0 - 2026-09-09\n\n## Added\n\n- one\n\n## Added\n\n- two\n",
 		})
@@ -655,9 +642,7 @@ func TestNormalize(t *testing.T) {
 	})
 
 	t.Run("reports an unreadable releases directory", func(t *testing.T) {
-		if os.Geteuid() == 0 {
-			t.Skip("an unreadable directory does not stop root from reading it")
-		}
+		requireUnixPermissions(t)
 		root := repo(t, nil)
 		dir := filepath.Join(root, changes.ReleasesDir)
 		require.NoError(t, os.Chmod(dir, 0o000))
@@ -677,9 +662,7 @@ func TestNormalize(t *testing.T) {
 }
 
 func TestReleaseWriteFailures(t *testing.T) {
-	if os.Geteuid() == 0 {
-		t.Skip("a read-only directory does not stop root from writing")
-	}
+	requireUnixPermissions(t)
 	pending := map[string]string{"changes/unreleased/a.md": "## Added\n\n- first\n"}
 
 	// readOnly makes the directory reject new files for the rest of the test.
@@ -716,6 +699,16 @@ func TestReleaseWriteFailures(t *testing.T) {
 		assert.FileExists(t, filepath.Join(root, "changes/releases/2026-09-14-v0.506.0.md"))
 		assert.FileExists(t, filepath.Join(root, changes.ChangelogFile))
 	})
+}
+
+func requireUnixPermissions(t *testing.T) {
+	t.Helper()
+	if runtime.GOOS == "windows" {
+		t.Skip("Windows does not enforce Unix permission bits")
+	}
+	if os.Geteuid() == 0 {
+		t.Skip("root can bypass Unix permission bits")
+	}
 }
 
 // repo prepares a temporary repository root containing the given files.
