@@ -34,7 +34,7 @@ func MakeDate(year int, month time.Month, day int) Date {
 	}
 }
 
-// Today generates a new date instance for today.
+// Today generates a new date instance for today in UTC.
 func Today() Date {
 	t := time.Now().UTC()
 	return Date{
