@@ -15,7 +15,7 @@ The preferred language for contributions is English (American).
 - **Go 1.25+**
 - **[golangci-lint](https://golangci-lint.run/)** for linting and formatting
 - **[Mage](https://magefile.org/)** as the build/task runner (`go install github.com/magefile/mage@latest`)
-- Key dependencies: [invopop/validation](https://github.com/invopop/validation), [invopop/jsonschema](https://github.com/invopop/jsonschema)
+- Key dependency: [invopop/jsonschema](https://github.com/invopop/jsonschema)
 
 ## Design Principles
 
