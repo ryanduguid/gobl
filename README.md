@@ -1,5 +1,11 @@
 # GOBL
 
+**Fork status**
+
+[![Fork code quality](https://app.codacy.com/project/badge/Grade/11bdca78a0dc4302b66e6524293bb622?branch=main)](https://app.codacy.com/gh/ryanduguid/gobl/dashboard)
+[![Fork Lint](https://github.com/ryanduguid/gobl/actions/workflows/lint.yaml/badge.svg?branch=main)](https://github.com/ryanduguid/gobl/actions/workflows/lint.yaml)
+[![Fork Test Go](https://github.com/ryanduguid/gobl/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ryanduguid/gobl/actions/workflows/test.yaml)
+
 <img src="https://github.com/invopop/gobl/blob/main/gobl_logo_black_rgb.svg#gh-light-mode-only" width="181" height="219" alt="GOBL Logo">
 <img src="https://github.com/invopop/gobl/blob/main/gobl_logo_white_rgb.svg#gh-dark-mode-only" width="181" height="219" alt="GOBL Logo">
 
