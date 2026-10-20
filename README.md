@@ -2,9 +2,9 @@
 
 **Fork status**
 
-[![Fork code quality](https://app.codacy.com/project/badge/Grade/11bdca78a0dc4302b66e6524293bb622?branch=main)](https://app.codacy.com/gh/ryanduguid/gobl/dashboard)
-[![Fork Lint](https://github.com/ryanduguid/gobl/actions/workflows/lint.yaml/badge.svg?branch=main)](https://github.com/ryanduguid/gobl/actions/workflows/lint.yaml)
-[![Fork Test Go](https://github.com/ryanduguid/gobl/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ryanduguid/gobl/actions/workflows/test.yaml)
+[![Fork code quality](https://img.shields.io/codacy/grade/11bdca78a0dc4302b66e6524293bb622/main?style=flat&labelColor=000000)](https://app.codacy.com/gh/ryanduguid/gobl/dashboard)
+[![Fork Lint](https://img.shields.io/github/actions/workflow/status/ryanduguid/gobl/lint.yaml?branch=main&label=Lint&style=flat&labelColor=000000)](https://github.com/ryanduguid/gobl/actions/workflows/lint.yaml)
+[![Fork Test Go](https://img.shields.io/github/actions/workflow/status/ryanduguid/gobl/test.yaml?branch=main&label=Test%20Go&style=flat&labelColor=000000)](https://github.com/ryanduguid/gobl/actions/workflows/test.yaml)
 
 <img src="https://github.com/invopop/gobl/blob/main/gobl_logo_black_rgb.svg#gh-light-mode-only" width="181" height="219" alt="GOBL Logo">
 <img src="https://github.com/invopop/gobl/blob/main/gobl_logo_white_rgb.svg#gh-dark-mode-only" width="181" height="219" alt="GOBL Logo">
@@ -13,14 +13,14 @@ Go Business Language. Core library and schemas.
 
 Released under the Apache 2.0 [LICENSE](https://github.com/invopop/gobl/blob/main/LICENSE), Copyright 2021-2026 [Invopop S.L.](https://invopop.com).
 
-[![Lint](https://github.com/invopop/gobl/actions/workflows/lint.yaml/badge.svg)](https://github.com/invopop/gobl/actions/workflows/lint.yaml)
-[![Test Go](https://github.com/invopop/gobl/actions/workflows/test.yaml/badge.svg)](https://github.com/invopop/gobl/actions/workflows/test.yaml)
+[![Lint](https://img.shields.io/github/actions/workflow/status/invopop/gobl/lint.yaml?label=Lint&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/lint.yaml)
+[![Test Go](https://img.shields.io/github/actions/workflow/status/invopop/gobl/test.yaml?label=Test%20Go&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/test.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/invopop/gobl)](https://goreportcard.com/report/github.com/invopop/gobl)
 [![codecov](https://codecov.io/gh/invopop/gobl/graph/badge.svg?token=490W2CZVIT)](https://codecov.io/gh/invopop/gobl)
-[![GoDoc](https://godoc.org/github.com/invopop/gobl?status.svg)](https://godoc.org/github.com/invopop/gobl)
-![Latest Tag](https://img.shields.io/github/v/tag/invopop/gobl)
+[![GoDoc](https://img.shields.io/badge/Go-reference-66023C?logo=go&style=flat&labelColor=000000&logoColor=E5E4E2&color=66023C)](https://godoc.org/github.com/invopop/gobl)
+![Latest Tag](https://img.shields.io/github/v/tag/invopop/gobl?style=flat&labelColor=000000&color=66023C)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/invopop/gobl)
-[![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
+[![Mentioned in Awesome Go](https://img.shields.io/badge/Awesome-mentioned-66023C?logo=awesomelists&style=flat&labelColor=000000&logoColor=FFD32A&color=66023C)](https://github.com/avelino/awesome-go)
 
 [Official GOBL documentation site](https://docs.gobl.org).
 
