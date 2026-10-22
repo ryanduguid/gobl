@@ -15,7 +15,6 @@ Released under the Apache 2.0 [LICENSE](https://github.com/invopop/gobl/blob/mai
 
 [![Lint](https://img.shields.io/github/actions/workflow/status/invopop/gobl/lint.yaml?label=Lint&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/lint.yaml)
 [![Test Go](https://img.shields.io/github/actions/workflow/status/invopop/gobl/test.yaml?label=Test%20Go&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/test.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/invopop/gobl)](https://goreportcard.com/report/github.com/invopop/gobl)
 [![codecov](https://codecov.io/gh/invopop/gobl/graph/badge.svg?token=490W2CZVIT)](https://codecov.io/gh/invopop/gobl)
 [![GoDoc](https://img.shields.io/badge/Go-reference-66023C?logo=go&style=flat&labelColor=000000&logoColor=E5E4E2&color=66023C)](https://godoc.org/github.com/invopop/gobl)
 ![Latest Tag](https://img.shields.io/github/v/tag/invopop/gobl?style=flat&labelColor=000000&color=66023C)
