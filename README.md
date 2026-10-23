@@ -15,11 +15,11 @@ Released under the Apache 2.0 [LICENSE](https://github.com/invopop/gobl/blob/mai
 
 [![Lint](https://img.shields.io/github/actions/workflow/status/invopop/gobl/lint.yaml?label=Lint&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/lint.yaml)
 [![Test Go](https://img.shields.io/github/actions/workflow/status/invopop/gobl/test.yaml?label=Test%20Go&style=flat&labelColor=000000)](https://github.com/invopop/gobl/actions/workflows/test.yaml)
-[![codecov](https://codecov.io/gh/invopop/gobl/graph/badge.svg?token=490W2CZVIT)](https://codecov.io/gh/invopop/gobl)
+[![codecov](https://img.shields.io/codecov/c/github/invopop/gobl?style=flat&labelColor=000000)](https://codecov.io/gh/invopop/gobl)
 [![GoDoc](https://img.shields.io/badge/Go-reference-66023C?logo=go&style=flat&labelColor=000000&logoColor=E5E4E2&color=66023C)](https://godoc.org/github.com/invopop/gobl)
 ![Latest Tag](https://img.shields.io/github/v/tag/invopop/gobl?style=flat&labelColor=000000&color=66023C)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/invopop/gobl)
-[![Mentioned in Awesome Go](https://img.shields.io/badge/Awesome-mentioned-66023C?logo=awesomelists&style=flat&labelColor=000000&logoColor=FFD32A&color=66023C)](https://github.com/avelino/awesome-go)
+[![Ask DeepWiki](https://img.shields.io/badge/DeepWiki-ask%20a%20question-66023C?style=flat&labelColor=000000&color=66023C)](https://deepwiki.com/invopop/gobl)
+[![Mentioned in Awesome Go](https://img.shields.io/badge/Awesome%20Go-mentioned-66023C?logo=awesomelists&style=flat&labelColor=000000&logoColor=FFD32A&color=66023C)](https://github.com/avelino/awesome-go)
 
 [Official GOBL documentation site](https://docs.gobl.org).
 
